@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import Title from "./../components/interface/Title";
 import generateRandomBetween from "../utils/generateRandomBetween";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/interface/PrimaryButton";
+import InstructionText from "../components/interface/InstructionText";
+import Card from "../components/interface/Card";
 
 let minBoundary = 1;
 let maxBoundary = 100;
@@ -52,11 +54,13 @@ const GameScreen = ({ userNumber, onGameOver }) => {
 		<View style={styles.screen}>
 			<Title>Opponent's Guess</Title>
 			<NumberContainer>{currentGuess}</NumberContainer>
-			<View>
-				<Text>Higher or lower?</Text>
-				<PrimaryButton onPress={nextGuessHandler.bind(null, "lower")}>-</PrimaryButton>
-				<PrimaryButton onPress={nextGuessHandler.bind(null, "grater")}>+</PrimaryButton>
-			</View>
+			<Card>
+				<InstructionText>Higher or lower?</InstructionText>
+				<View>
+					<PrimaryButton onPress={nextGuessHandler.bind(null, "lower")}>-</PrimaryButton>
+					<PrimaryButton onPress={nextGuessHandler.bind(null, "grater")}>+</PrimaryButton>
+				</View>
+			</Card>
 			<View>{/* LOG ROUNDS */}</View>
 		</View>
 	);
