@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
 import PrimaryButton from "../components/interface/PrimaryButton";
+import Title from "../components/interface/Title";
 import Colors from "../constants/colors";
 
 const StartGameScreen = ({ onPickNumber }) => {
@@ -32,21 +33,25 @@ const StartGameScreen = ({ onPickNumber }) => {
 	};
 
 	return (
-		<View style={styles.inputContainer}>
-			<TextInput
-				style={styles.numberInput}
-				maxLength={2}
-				keyboardType="number-pad"
-				autoCapitalize="none"
-				autoCorrect={false}
-				onChangeText={numberInputHandler}
-			/>
-			<View style={styles.buttonsContainer}>
-				<View style={styles.buttonContainer}>
-					<PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-				</View>
-				<View style={styles.buttonContainer}>
-					<PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+		<View style={styles.rootContainer}>
+			<Title>Guess My Number</Title>
+			<View style={styles.inputContainer}>
+				<Text style={styles.intructionText}>Enter a Number</Text>
+				<TextInput
+					style={styles.numberInput}
+					maxLength={2}
+					keyboardType="number-pad"
+					autoCapitalize="none"
+					autoCorrect={false}
+					onChangeText={numberInputHandler}
+				/>
+				<View style={styles.buttonsContainer}>
+					<View style={styles.buttonContainer}>
+						<PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+					</View>
+					<View style={styles.buttonContainer}>
+						<PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+					</View>
 				</View>
 			</View>
 		</View>
@@ -56,12 +61,21 @@ const StartGameScreen = ({ onPickNumber }) => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
+	rootContainer: {
+		flex: 1,
+		marginTop: 100,
+		alignItems: "center",
+	},
+	intructionText: {
+		color: Colors.accent500,
+		fontSize: 24,
+	},
 	inputContainer: {
 		justifyContent: "center",
 		alignItems: "center",
 		marginHorizontal: 24,
 		borderRadius: 8,
-		marginTop: 100,
+		marginTop: 36,
 		padding: 16,
 		backgroundColor: Colors.primary800,
 		elevation: 4,
