@@ -19,7 +19,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
 
 	useEffect(() => {
 		if (currentGuess === userNumber) {
-			onGameOver();
+			onGameOver(guessRounds.length);
 		}
 	}, [userNumber, onGameOver, currentGuess]);
 
@@ -116,5 +116,6 @@ const styles = StyleSheet.create({
 	},
 	listContainer: {
 		flex: 1,
+		padding: 16,
 	},
 });

@@ -28,8 +28,9 @@ export default function App() {
 		return <AppLoading />;
 	}
 
-	const gameOverHandler = () => {
+	const gameOverHandler = (numberOfRounds) => {
 		setGameIsOver(true);
+		setGuessRounds(numberOfRounds);
 	};
 
 	const pickedNumber = (pickedNumber) => {
