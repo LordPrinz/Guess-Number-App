@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Text, View, StyleSheet, Alert } from "react-native";
 import Title from "./../components/interface/Title";
 import generateRandomBetween from "../utils/generateRandomBetween";
-import NumberContainer from "../components/interface/game/NumberContainer";
+import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/interface/PrimaryButton";
 
 let minBoundary = 1;
