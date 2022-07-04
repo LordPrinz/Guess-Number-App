@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
 import { View, StyleSheet, Alert } from "react-native";
 import Title from "./../components/interface/Title";
 import generateRandomBetween from "../utils/generateRandomBetween";
@@ -55,10 +56,20 @@ const GameScreen = ({ userNumber, onGameOver }) => {
 			<Title>Opponent's Guess</Title>
 			<NumberContainer>{currentGuess}</NumberContainer>
 			<Card>
-				<InstructionText>Higher or lower?</InstructionText>
-				<View>
-					<PrimaryButton onPress={nextGuessHandler.bind(null, "lower")}>-</PrimaryButton>
-					<PrimaryButton onPress={nextGuessHandler.bind(null, "grater")}>+</PrimaryButton>
+				<InstructionText style={styles.instructionText}>
+					Higher or lower?
+				</InstructionText>
+				<View style={styles.buttonsContainer}>
+					<View style={styles.buttonContainer}>
+						<PrimaryButton onPress={nextGuessHandler.bind(null, "lower")}>
+							<Ionicons name="md-remove" />
+						</PrimaryButton>
+					</View>
+					<View style={styles.buttonContainer}>
+						<PrimaryButton onPress={nextGuessHandler.bind(null, "grater")}>
+							<Ionicons name="md-add" />
+						</PrimaryButton>
+					</View>
 				</View>
 			</Card>
 			<View>{/* LOG ROUNDS */}</View>
@@ -72,5 +83,14 @@ const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
 		padding: 24,
+	},
+	buttonsContainer: {
+		flexDirection: "row",
+	},
+	buttonContainer: {
+		flex: 1,
+	},
+	instructionText: {
+		marginBottom: 12,
 	},
 });
