@@ -1,8 +1,18 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
+import {
+	Text,
+	View,
+	Pressable,
+	StyleSheet,
+	useWindowDimensions,
+} from "react-native";
 
 import Colors from "./../../constants/colors";
 
 const PrimaryButton = ({ children, onPress }) => {
+	const { width } = useWindowDimensions();
+
+	const paddingVertical = width < 500 ? 8 : 16;
+
 	return (
 		<View style={styles.buttonOuterContainer}>
 			<Pressable
@@ -12,8 +22,12 @@ const PrimaryButton = ({ children, onPress }) => {
 				}}
 				style={({ pressed }) =>
 					pressed
-						? [styles.buttonInnerContainer, styles.pressed]
-						: styles.buttonInnerContainer
+						? [
+								styles.buttonInnerContainer,
+								styles.pressed,
+								{ paddingVertical: paddingVertical },
+						  ]
+						: [styles.buttonInnerContainer, { paddingVertical: paddingVertical }]
 				}
 			>
 				<Text style={styles.buttonText}>{children}</Text>
