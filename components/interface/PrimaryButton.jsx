@@ -11,7 +11,7 @@ import Colors from "./../../constants/colors";
 const PrimaryButton = ({ children, onPress }) => {
 	const { width } = useWindowDimensions();
 
-	const paddingVertical = width < 500 ? 8 : 16;
+	const paddingVertical = width < 500 ? 10 : 16;
 
 	return (
 		<View style={styles.buttonOuterContainer}>
