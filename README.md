@@ -47,6 +47,8 @@ You might also need an android / ios emulator like [AndroidStudio]("https://deve
 ```bash
 # Clone this repository
 $ git clone https://github.com/LordPrinz/Guess-Number-App
+# Go to the cloned repository
+$ cd Guess-Number-App
 # Install dependencies
 $ npm install
 # Run the app
